@@ -1,0 +1,37 @@
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment Variables (API Keys)
+.env
+.env.*
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Downloaded Audio / Videos
+downloads/
+*.mp3
+*.wav
+*.mp4
+
+# Generated Files
+*.pkl
+*.joblib
+
+# OS Files
+.DS_Store
+Thumbs.db
