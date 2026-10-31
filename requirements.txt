@@ -37,3 +37,6 @@ fpdf2>=2.8.0
 python-dotenv>=1.0.1
 langchain-openai
 langchain-qdrant
+
+pydub
+audioop-lts
