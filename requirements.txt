@@ -42,3 +42,4 @@ langchain-qdrant
 audioop-lts
 pydub>=0.25.1
 
+deno>=2.3.0
