@@ -9,7 +9,7 @@
 streamlit>=1.38.0
 
 # --- Audio ingestion ---
-yt-dlp[default]>=2024.8.6
+yt-dlp[default]>=2026.10.0
 
 
 # --- Local transcription and translation ---

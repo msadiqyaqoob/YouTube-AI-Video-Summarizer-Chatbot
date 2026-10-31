@@ -3,6 +3,8 @@ import yt_dlp
 from pydub import AudioSegment
 import os
 
+import shutil
+
 DOWNLOAD_DIR = "downloads"
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
@@ -11,18 +13,21 @@ def download_youtube_audio(url: str) -> str:
     output_path = os.path.join(DOWNLOAD_DIR, "%(title)s.%(ext)s")
 
     ydl_opts = {
-        "format": "bestaudio/best",
-        "outtmpl": output_path,
-        "postprocessors": [{
-            "key": "FFmpegExtractAudio",
-            "preferredcodec": "wav",
-        }],
-        "quiet": True,
-        "noplaylist": True,
-        "retries": 5,
-        "extractor_retries": 3,
-        "remote_components": ["ejs:github"],
-    }
+    "format": "bestaudio/best",
+    "outtmpl": output_path,
+    "postprocessors": [{
+        "key": "FFmpegExtractAudio",
+        "preferredcodec": "wav",
+    }],
+    "quiet": True,
+    "noplaylist": True,
+    "retries": 5,
+    "extractor_retries": 3,
+    "remote_components": ["ejs:github"],
+    "force_ipv4": True,
+    "cachedir": False,
+    "verbose": True,
+}
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
@@ -72,3 +77,11 @@ def process_input(source: str) -> list:
 
     print(f"Created {len(chunks)} audio chunks.")
     return chunks
+
+
+
+import shutil
+
+print("yt-dlp:", yt_dlp.version.__version__)
+print("FFmpeg:", shutil.which("ffmpeg"))
+print("Deno:", shutil.which("deno"))
